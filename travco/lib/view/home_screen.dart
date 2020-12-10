@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:travco/widgets/destination_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -26,13 +27,17 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 60.0,
         width: 60.0,
         decoration: BoxDecoration(
-          color: _selectedButtonIndex == index ? Theme.of(context).accentColor : Color(0xffe7ebee),
+          color: _selectedButtonIndex == index
+              ? Theme.of(context).accentColor
+              : Color(0xffe7ebee),
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Icon(
           _icons[index],
           size: 25.0,
-          color:  _selectedButtonIndex == index ? Theme.of(context).primaryColor : Color(0xffb4c1c4),
+          color: _selectedButtonIndex == index
+              ? Theme.of(context).primaryColor
+              : Color(0xffb4c1c4),
         ),
       ),
     );
@@ -60,10 +65,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: _icons.asMap().entries.map(
+              children: _icons
+                  .asMap()
+                  .entries
+                  .map(
                     (MapEntry map) => _buildIcon(map.key),
-                  ).toList(),
+                  )
+                  .toList(),
             ),
+            SizedBox(
+              height: 20.0,
+            ),
+            DestinationCarousel(),                                              // In the widget directory
+
           ],
         ),
       ),
