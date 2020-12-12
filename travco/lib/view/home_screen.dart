@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedButtonIndex = 0;
+  int _currentTab = 0;
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
     FontAwesomeIcons.bed,
@@ -77,11 +78,48 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 20.0,
             ),
-            DestinationCarousel(),                                              // In the widget directory
-            SizedBox(height: 20.0,),
+            DestinationCarousel(), // In the widget directory
+            SizedBox(
+              height: 20.0,
+            ),
             HotelCarousel(),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentTab,
+        onTap: (int value){
+          setState(() {
+            _currentTab = value;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            title: SizedBox.shrink(),
+            icon: Icon(
+              FontAwesomeIcons.home,
+              size: 20.0,
+            ),
+          ),
+          BottomNavigationBarItem(
+            title: SizedBox.shrink(),
+            icon: Icon(
+              FontAwesomeIcons.search,
+              size: 20.0,
+            ),
+          ),
+          // BottomNavigationBarItem(
+          //   title: SizedBox.shrink(),
+          //   icon: Icon(
+          //     FontAwesomeIcons.heart,
+          //     size: 20.0,
+          //   ),
+          // ),
+          BottomNavigationBarItem(
+            title: SizedBox.shrink(),
+            icon: Icon(FontAwesomeIcons.bell),
+          ),
+        ],
       ),
     );
   }
