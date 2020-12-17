@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:travco/constants.dart';
 import 'package:travco/view/home_screen.dart';
 
 void main() => runApp(MyApp());
@@ -11,9 +12,9 @@ class MyApp extends StatelessWidget {
       title: 'TravCo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFF3EBACE),
-        accentColor: Color(0xFFD8ECF1),
-        scaffoldBackgroundColor: Color(0xFFF3F5F7),
+        primaryColor: primaryColor,
+        accentColor: accentColor,
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
           // 1B44A6  //blue color
       ),
       home: HomeScreen(),

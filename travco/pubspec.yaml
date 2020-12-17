@@ -15,6 +15,7 @@ dependencies:
   font_awesome_flutter: ^8.5.0
   get: ^3.21.2
   geolocator: ^6.1.13
+  smooth_star_rating: ^1.1.1
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:travco/constants.dart';
+import 'package:travco/models/activity_model.dart';
 import 'package:travco/models/destination_model.dart';
 import 'package:travco/view/home_screen.dart';
 
@@ -114,6 +117,130 @@ class _DestinationScreenState extends State<DestinationScreen> {
                 ),
               )
             ],
+          ),
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
+              itemCount: widget.destination.activities.length,
+              itemBuilder: (context, index) {
+                Activity activity = widget.destination.activities[index];
+                return Stack(
+                  children: [
+                    Container(
+                      //The Container which contains all the activity information (the main containier)
+                      margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+                      height: 170.0,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(100.0, 20.0, 20.0, 20.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: 120.0,
+                                  child: Text(
+                                    activity.name,
+                                    style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      '\$${activity.price}',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 22.0,
+                                      ),
+                                    ),
+                                    Text(
+                                      'per pax',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Text(activity.type),
+                            SmoothStarRating(
+                              allowHalfRating: false,
+                              size: 20.0,
+                              color: Colors.amber,
+                              starCount: 5,
+                              rating: activity.rating.toDouble(),
+                              borderColor: Colors.grey,
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Row(
+                              // The row that contains the staring times of the tours
+                              children: [
+                                Container(
+                                  width: 70.0,
+                                  decoration: BoxDecoration(
+                                    color: accentColor,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    activity.startTimes[0],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                Container(
+                                  width: 70.0,
+                                  decoration: BoxDecoration(
+                                    color: accentColor,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    activity.startTimes[1],
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 15.0,
+                      left: 20.0,
+                      bottom:15.0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image(
+                          width: 110.0,
+                          image: AssetImage(
+                            activity.imageUrl,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              },
+            ),
           ),
         ],
       ),

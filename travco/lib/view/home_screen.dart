@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:travco/constants.dart';
 import 'package:travco/widgets/destination_carousel.dart';
 import 'package:travco/widgets/hotel_carousel.dart';
 
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         width: 60.0,
         decoration: BoxDecoration(
           color: _selectedButtonIndex == index
-              ? Theme.of(context).accentColor
+              ? accentColor
               : Color(0xffe7ebee),
           borderRadius: BorderRadius.circular(30.0),
         ),
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _icons[index],
           size: 25.0,
           color: _selectedButtonIndex == index
-              ? Theme.of(context).primaryColor
+              ? primaryColor
               : Color(0xffb4c1c4),
         ),
       ),
