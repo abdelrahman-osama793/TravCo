@@ -192,6 +192,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                               // The row that contains the staring times of the tours
                               children: [
                                 Container(
+                                  padding: EdgeInsets.all(5.0),
                                   width: 70.0,
                                   decoration: BoxDecoration(
                                     color: accentColor,
@@ -206,6 +207,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   width: 10.0,
                                 ),
                                 Container(
+                                  padding: EdgeInsets.all(5.0),
                                   width: 70.0,
                                   decoration: BoxDecoration(
                                     color: accentColor,

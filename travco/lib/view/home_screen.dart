@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travco/constants.dart';
+import 'package:travco/sizeConfig.dart';
 import 'package:travco/widgets/destination_carousel.dart';
 import 'package:travco/widgets/hotel_carousel.dart';
 
@@ -10,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   int _selectedButtonIndex = 0;
   int _currentTab = 0;
   List<IconData> _icons = [
@@ -20,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   Widget _buildIcon(int index) {
+    SizeConfig().init(context);
     return GestureDetector(
       onTap: () {
         setState(() {
