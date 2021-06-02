@@ -43,8 +43,7 @@ class DestinationCarousel extends StatelessWidget {
           height: 300.0,
           child: ListView.builder(
             itemCount: destinations.length,
-            itemBuilder: (BuildContext context, int index) {
-              Destination destination = destinations[index];
+            itemBuilder: (BuildContext context, int index) {Destination destination = destinations[index];
               return GestureDetector(
                 onTap: () => Get.to(
                   DestinationScreen(
